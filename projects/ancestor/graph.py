@@ -133,14 +133,14 @@ class Graph:
         ####Mark as visited
         if current_node not in visited:
             visited.add(current_node)
-            ####Get the current node's neighbor
+        ####Get the current node's neighbor
             neighbors = self.get_neighbors(current_node)
-            ####iterate over the neighbors
+        ####iterate over the neighbors
             for neighbor in neighbors:
-                ####Add neighbors to path
+        ####Add neighbors to path
                 neighbor_path = current_path.copy()
                 neighbor_path.append(neighbor)
-                ####Enqueue neighbors path
+        ####Enqueue neighbors path
                 queue.enqueue(neighbor_path)
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -149,9 +149,8 @@ class Graph:
         depth-first order.
         """
         pass  # TODO
-    #DFS Recursive needs to return path all the way to the top for base case
-    #Base Case = destination_vertex found
-    def dfs_recursive(self, starting_vertex, destination_vertex, path = None,  visited = None):
+
+    def dfs_recursive(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
         starting_vertex to destination_vertex in
@@ -159,26 +158,7 @@ class Graph:
 
         This should be done using recursion.
         """
-        if visited == None:
-            visited = set()
-        if path == None:
-            path = []
-        if starting_vertex not in visited:
-            visited.add(starting_vertex)
-        
-        if len(path) == 0:
-            path.append(starting_vertex)
-
-        if starting_vertex == destination_vertex:
-            return path
-
-        neighbors = self.get_neighbors(starting_vertex)
-        for neighbor in neighbors:
-            if neighbor not in visited:
-                #recurse
-                result = self.dfs_recursive(neighbor, destination_vertex, path+[neighbor], visited)
-                if result is not None:
-                    return result
+        pass  # TODO
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
